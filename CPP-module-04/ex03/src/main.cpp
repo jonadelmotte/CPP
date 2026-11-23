@@ -1,0 +1,33 @@
+#include "../include/MateriaSource.hpp"
+#include "../include/Cure.hpp"
+#include "../include/Ice.hpp"
+#include "../include/Character.hpp"
+#include <iostream>
+
+int main()
+{
+    IMateriaSource* src = new MateriaSource();
+    src->learnMateria(new Ice());
+    src->learnMateria(new Cure());
+
+    ICharacter* me = new Character("me");
+
+    AMateria* tmp;
+    tmp = src->createMateria("ice");
+    me->equipe(tmp); 
+    tmp = src->createMateria("cure");
+    me->equipe(tmp);
+
+    ICharacter* bob = new Character("bob");
+    ICharacter* charlotte = new Character("charlotte");
+
+    me->use(0, *bob);
+    me->use(1, *bob);
+
+    delete charlotte;
+    delete bob;
+    delete me;
+    delete src;
+
+    return 0;
+}

@@ -1,0 +1,24 @@
+#include "../include/Zombie.hpp"
+#include <iostream>
+
+Zombie::Zombie()
+{
+}
+
+Zombie::~Zombie()
+{
+    std::cout << BLUE << _name << ": " GREEN "died....again..." RESET << std::endl;
+}
+
+void    Zombie::announce() const
+{
+    std::cout << BLUE << _name <<  ": " << RED "BraiiiiiiinnnzzzZ..." RESET << std::endl;
+}
+
+void    Zombie::nameZombie(std::string &name)
+{
+    if (!name.empty())
+        _name = name;
+    else
+        _name = "Nobody";
+}
